@@ -95,7 +95,7 @@ return [
     - In the Apps Script editor, click on "Triggers" (clock icon) in the left sidebar
     - Click "+ Add Trigger" button at the bottom right
     - Configure the trigger with these settings:
-        - Choose which function to run: `main`
+        - Choose which function to run: `main` OR `gmailCleanupDebug` if `main` doesn't appear
         - Select event source: "Time-driven"
         - Select type of time trigger: "Hour timer" (or your preferred interval)
         - Select hour interval: Choose how often you want the script to run

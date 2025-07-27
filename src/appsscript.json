@@ -1,5 +1,5 @@
 {
-  "timeZone": "default",
+  "timeZone": "UTC",
   "dependencies": {
   },
   "exceptionLogging": "STACKDRIVER",

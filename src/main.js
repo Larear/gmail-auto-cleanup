@@ -12,6 +12,8 @@
 
 function gmailCleanupDebug() {
   const now = new Date();
+  const localTime = convertToUserTimezone(now);
+  Logger.log('User local time: ' + localTime);
   let fileId = null; // Store the spreadsheet ID for status tracking
 
   try {
