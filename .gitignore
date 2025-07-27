@@ -1,0 +1,24 @@
+
+# IDE
+.idea/
+
+# Clasp specific
+.clasp.json
+.clasprc.json
+
+# Node.js
+node_modules/
+npm-debug.log
+package-lock.json
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Build output
+dist/
+build/
+
+# Logs
+*.log
+logs/

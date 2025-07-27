@@ -1,0 +1,10 @@
+{
+  "name": "gmail-auto-cleanup",
+  "version": "1.0.0",
+  "description": "Gmail Auto-Cleanup Script with CLASP",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no src specified\" && exit 1"
+  },
+  "private": true
+}
