@@ -2,6 +2,28 @@
 
 A Google Apps Script that helps manage your Gmail inbox by automatically identifying and logging emails that match specific cleanup rules. The script runs in debug mode by default, logging matches without deleting them.
 
+## Disclaimer
+
+⚠️ **Use at Your Own Risk**
+
+This script is provided "as is", without warranty of any kind, express or implied. By using this script, you acknowledge and agree that:
+
+- The author accepts no liability for any damage, data loss, or issues arising from the use of this script
+- You are using this script voluntarily and at your own risk
+- It is your responsibility to backup your data before using this script
+- The author is not responsible for any direct, indirect, incidental, special, exemplary, or consequential damages
+- The script may interact with your Google Workspace environment; use with caution in production environments
+- You should test the script in a non-production environment first
+- The functionality may break due to changes in Google's APIs or services
+
+You are strongly advised to:
+- Review the code before running it
+- Test in a safe environment first
+- Maintain proper backups
+- Verify the results
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+
 ## Features
 
 ### Automated Email Processing
@@ -58,13 +80,39 @@ return [
 - Fallback logging for error handling
 - Protection for emails with custom labels
 
-## Usage
+## Setup and Usage in Google Apps Script
 
-1. Set up your keyword rules in `Config.js`
-2. Run `gmailCleanupDebug()` to start a debug run
-3. Review the generated logs in Google Drive under "Gmail Auto Cleanup Logs/Debug"
-4. To enable actual deletion, uncomment the marked line in the script
+1. **Open Script Editor**:
+    - Go to [script.google.com](https://script.google.com)
+    - Create a new project
+    - Copy and paste all files from the `src` folder into your project
 
+2. **Configure Settings**:
+    - Open `Config.js` and adjust the settings according to your needs
+    - Make sure to set up your timezone correctly in `appsscript.json`
+
+3. **Set up Time-Based Trigger**:
+    - In the Apps Script editor, click on "Triggers" (clock icon) in the left sidebar
+    - Click "+ Add Trigger" button at the bottom right
+    - Configure the trigger with these settings:
+        - Choose which function to run: `main`
+        - Select event source: "Time-driven"
+        - Select type of time trigger: "Hour timer" (or your preferred interval)
+        - Select hour interval: Choose how often you want the script to run
+        - Click "Save"
+
+4. **Authorization**:
+    - Run the script manually first time
+    - Grant necessary permissions when prompted
+    - The trigger will now run automatically at your specified intervals
+   
+5. **Activating deletion**
+    - Search for // if (decision.delete) thread.moveToTrash(); within main.js
+    - Remove the double slashes (//) 
+    - To undo the removal of your mails from your inbox add the double slashes back
+    - Save after changes
+
+**Note**: Make sure your Google account has sufficient quota for the number of executions you plan to run per day. Check [Apps Script quotas](https://developers.google.com/apps-script/guides/services/quotas) for more details.
 ## Important Notes
 
 - The script requires appropriate Google Apps Script permissions
